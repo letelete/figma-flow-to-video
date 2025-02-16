@@ -1,0 +1,8 @@
+{
+  "title": "Select flow to start.",
+  "state": {
+    "loading": "Loading Prototype Flows...",
+    "empty": "No flows detected. <bold>Create a <link>Prototype Flow</link> to start.</bold>"
+  },
+  "submit-flow-button": "Next"
+}
