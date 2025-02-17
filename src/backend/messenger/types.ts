@@ -1,5 +1,5 @@
-import { FlowStartingPointsResponseData } from '../controllers/flow-starting-point-controller';
-import { CreateRectangleRequestData } from '../controllers/rectangle-controller';
+import { FlowStartingPointsResponseData } from '~/backend/controllers/flow-starting-point-controller';
+import { CreateRectangleRequestData } from '~/backend/controllers/rectangle-controller';
 
 export interface PluginMessage {
   type: 'request' | 'response';

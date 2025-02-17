@@ -31,6 +31,12 @@ export default [
     rules: {
       'react/react-in-jsx-scope': 'off',
       'no-unused-vars': 'off',
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: ['.*'],
+        },
+      ],
       '@typescript-eslint/no-unused-vars': [
         'error',
         {

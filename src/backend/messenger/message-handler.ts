@@ -1,6 +1,6 @@
-import { FlowStartingPointController } from '../controllers/flow-starting-point-controller';
-import { RectangleController } from '../controllers/rectangle-controller';
-import { RequestMessage } from './types';
+import { FlowStartingPointController } from '~/backend/controllers/flow-starting-point-controller';
+import { RectangleController } from '~/backend/controllers/rectangle-controller';
+import { RequestMessage } from '~/backend/messenger/types';
 
 const messageHandler: MessageEventHandler = (message: RequestMessage) => {
   const flowStartingPointController = FlowStartingPointController();

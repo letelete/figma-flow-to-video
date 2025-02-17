@@ -1,11 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import {} from '../../backend/messenger/message-handler';
 import {
   CreateRectangleRequestMessage,
   RequestMessage,
   ResponseMessage,
-} from '../../backend/messenger/types';
-import { FlowStartingPoint } from '../../backend/services/flow-starting-point-service';
+} from '~/backend/messenger/types';
+import { FlowStartingPoint } from '~/backend/services/flow-starting-point-service';
 
 function usePostMessage() {
   const post = useCallback((pluginMessage: RequestMessage) => {

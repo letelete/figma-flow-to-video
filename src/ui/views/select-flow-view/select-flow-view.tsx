@@ -4,14 +4,15 @@ import {
   useCallback,
   useState,
 } from 'react';
-import { useFlowStartingPointMessenger } from '../../services/messenger';
+import { useFlowStartingPointMessenger } from '~/ui/services/messenger';
 import { Button, Link, Select, Text } from 'figma-kit';
 import { Trans, useTranslation } from 'react-i18next';
-import { FlowStartingPoint } from '../../../backend/services/flow-starting-point-service';
+import { FlowStartingPoint } from '~/backend/services/flow-starting-point-service';
 
 const SelectFlowView = ({ ...props }: ComponentPropsWithoutRef<'div'>) => {
   const { t } = useTranslation('select-flow-view');
   const { flowStartingPoints } = useFlowStartingPointMessenger();
+  console.log('[DEBUG] flowStartingPoints', flowStartingPoints);
 
   const [selectedFlow, setSelectedFlow] = useState<FlowStartingPoint | null>(
     null

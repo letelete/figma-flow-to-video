@@ -1,4 +1,4 @@
-import { RectangleNodeBuilder } from '../services/rectangle-node-service';
+import { RectangleNodeBuilder } from '~/backend/services/rectangle-node-service';
 
 export interface CreateRectangleRequestData {
   count: number;
