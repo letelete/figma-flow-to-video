@@ -18,7 +18,7 @@ interface ExportFlowContextState {
 
 const ExportFlowContext = createContext<ExportFlowContextState | null>(null);
 
-export const useExportFlowContext = () => {
+const useExportFlowContext = () => {
   const context = useContext(ExportFlowContext);
 
   if (!context) {
@@ -30,29 +30,20 @@ export const useExportFlowContext = () => {
   return context;
 };
 
-export const ExportFlowContextProvider = ({
+const ExportFlowContextProvider = ({
   children,
-  startingPoint: _startingPoint,
-}: PropsWithChildren<Partial<ExportFlowContextState>>) => {
-  const [currentStartingPoint, setCurrentStartingPoint] =
-    useState<FlowStartingPoint | null>(_startingPoint ?? null);
-
-  const setStartingPoint = useCallback((fsp: FlowStartingPoint) => {
-    setCurrentStartingPoint(fsp);
-  }, []);
-
-  const clearStartingPoint = useCallback(() => {
-    setCurrentStartingPoint(null);
-  }, []);
-
+  startingPoint,
+  setStartingPoint,
+  clearStartingPoint,
+}: PropsWithChildren<ExportFlowContextState>) => {
   const contextValue = useMemo(
     () =>
       ({
-        startingPoint: currentStartingPoint,
+        startingPoint,
         setStartingPoint,
         clearStartingPoint,
       }) satisfies ExportFlowContextState,
-    [clearStartingPoint, currentStartingPoint, setStartingPoint]
+    [clearStartingPoint, setStartingPoint, startingPoint]
   );
 
   return (
@@ -62,15 +53,38 @@ export const ExportFlowContextProvider = ({
   );
 };
 
+const useFlowControllerModel = () => {
+  const [currentStartingPoint, setCurrentStartingPoint] =
+    useState<FlowStartingPoint | null>(null);
+
+  const setStartingPoint = useCallback((fsp: FlowStartingPoint) => {
+    setCurrentStartingPoint(fsp);
+  }, []);
+
+  const clearStartingPoint = useCallback(() => {
+    setCurrentStartingPoint(null);
+  }, []);
+
+  return {
+    currentStartingPoint,
+    setStartingPoint,
+    clearStartingPoint,
+  } as const;
+};
+
 const ExportFlowController = () => {
-  const context = useExportFlowContext();
+  const model = useFlowControllerModel();
 
-  if (context.startingPoint === null) {
-    return <SelectFlowView />;
-  }
-
-  return <ExportFlowView />;
+  return (
+    <ExportFlowContextProvider
+      startingPoint={model.currentStartingPoint}
+      setStartingPoint={model.setStartingPoint}
+      clearStartingPoint={model.clearStartingPoint}
+    >
+      {model.currentStartingPoint ? <ExportFlowView /> : <SelectFlowView />}
+    </ExportFlowContextProvider>
+  );
 };
 ExportFlowController.displayName = 'ExportFlowController';
 
-export { ExportFlowController };
+export { ExportFlowController, useExportFlowContext };
