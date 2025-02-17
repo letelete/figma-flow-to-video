@@ -1,6 +1,6 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import nsSelectFlowView from '~/i18n/en/select-flow-view.json';
+import nsSelectFlowView from '~/lib/i18n/en/select-flow-view.json';
 
 i18next.use(initReactI18next).init({
   lng: 'en',

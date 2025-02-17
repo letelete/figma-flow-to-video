@@ -1,8 +1,6 @@
-import { MessageSender } from '~/backend/messenger/message-sender';
-import {
-  FlowStartingPoint,
-  getFlowStartingPoints,
-} from '~/backend/services/flow-starting-point-service';
+import { MessageSender } from '~/core/messenger/message-sender';
+import { getFlowStartingPoints } from '~/core/services/flow-starting-point-service';
+import { FlowStartingPoint } from '~/lib/types/flow.types';
 
 export interface FlowStartingPointsResponseData {
   flowStartingPoints: FlowStartingPoint[];

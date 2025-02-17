@@ -1,7 +1,4 @@
-export interface FlowStartingPoint {
-  nodeId: string;
-  name: string;
-}
+import { FlowStartingPoint } from '~/lib/types/flow.types';
 
 export function getFlowStartingPoints() {
   return [

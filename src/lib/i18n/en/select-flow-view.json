@@ -1,0 +1,11 @@
+{
+  "title": "Flow To Video Plugin",
+  "state": {
+    "loading": "Loading Prototype Flows...",
+    "empty": "No flows detected. <bold>Create a <prototype-flow>Prototype Flow</prototype-flow> to start.</bold>"
+  },
+  "select-flow-form": {
+    "title": "Select flow to start.",
+    "submit-button": "Next"
+  }
+}

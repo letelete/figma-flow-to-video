@@ -1,12 +1,14 @@
-import React from 'react';
-import '~/i18n/config';
-import { SelectFlowView } from '~/ui/views/select-flow-view/select-flow-view';
-import '~/ui/styles.css';
+import {
+  ExportFlowContextProvider,
+  ExportFlowController,
+} from '~/ui/modules/export-flow-module/controllers/export-flow-controller';
 
 const App: React.FC = () => {
   return (
     <div>
-      <SelectFlowView />
+      <ExportFlowContextProvider>
+        <ExportFlowController />
+      </ExportFlowContextProvider>
     </div>
   );
 };

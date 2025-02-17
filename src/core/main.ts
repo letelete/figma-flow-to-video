@@ -1,4 +1,4 @@
-import { Messenger } from '~/backend/messenger/message-handler';
+import { Messenger } from '~/core/messenger/message-handler';
 
 export default function () {
   figma.showUI(__html__, {

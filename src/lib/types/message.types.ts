@@ -1,16 +1,9 @@
-import { FlowStartingPointsResponseData } from '~/backend/controllers/flow-starting-point-controller';
-import { CreateRectangleRequestData } from '~/backend/controllers/rectangle-controller';
+import { FlowStartingPointsResponseData } from '~/core/controllers/flow-starting-point-controller';
 
 export interface PluginMessage {
   type: 'request' | 'response';
   key: string;
   data?: unknown;
-}
-
-export interface CreateRectangleRequestMessage extends PluginMessage {
-  type: 'request';
-  key: 'CREATE_RECTANGLE';
-  data: CreateRectangleRequestData;
 }
 
 export interface FlowStartingPointsRequestMessage extends PluginMessage {
@@ -24,8 +17,6 @@ export interface FlowStartingPointsResponseMessage extends PluginMessage {
   data: FlowStartingPointsResponseData;
 }
 
-export type RequestMessage =
-  | CreateRectangleRequestMessage
-  | FlowStartingPointsRequestMessage;
+export type RequestMessage = FlowStartingPointsRequestMessage;
 
 export type ResponseMessage = FlowStartingPointsResponseMessage;
