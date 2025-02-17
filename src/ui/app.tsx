@@ -2,9 +2,9 @@ import { ExportFlowController } from '~/ui/modules/export-flow-module/controller
 
 const App: React.FC = () => {
   return (
-    <div>
+    <main>
       <ExportFlowController />
-    </div>
+    </main>
   );
 };
 
