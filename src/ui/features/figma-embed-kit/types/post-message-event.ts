@@ -1,0 +1,7 @@
+export const POST_MESSAGE_TYPE = {
+  NAVIGATE_FORWARD: 'NAVIGATE_FORWARD',
+  NAVIGATE_BACKWARD: 'NAVIGATE_BACKWARD',
+  RESTART_PROTOTYPE: 'RESTART',
+} as const;
+
+export type PostMessageEventType = keyof typeof POST_MESSAGE_TYPE;

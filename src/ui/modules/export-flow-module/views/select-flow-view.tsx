@@ -82,7 +82,6 @@ const SelectFlowView = ({
             <Select.Root
               value={selectedFlow?.nodeId}
               onValueChange={(nodeId) => {
-                console.log('selected node', nodeId);
                 setSelectedFlow(
                   flowStartingPoints.find((flow) => flow.nodeId === nodeId) ??
                     null

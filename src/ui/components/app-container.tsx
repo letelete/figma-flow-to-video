@@ -8,7 +8,10 @@ const AppContainer = forwardRef<
   return (
     <div
       ref={ref}
-      className={cn('flex w-full flex-col p-4 gap-y-4', className)}
+      className={cn(
+        'flex w-full flex-col p-4 gap-y-4 relative bg text',
+        className
+      )}
       {...rest}
     >
       {children}
